@@ -12,13 +12,10 @@ function PostJob({token, onPosted}: PostJobProps){
     const [location, setLocation] = useState<string>("");
     const [remote, setRemote] = useState<"yes"|"no">("no");
     const [skills, setSkills] = useState<string>(""); 
-    // java,python,node
     const [experienceRequired, setExperienceRequired] = useState<number>(0);
     const [description, setDescription] = useState<string>("");
 
     const [error, setError] = useState<string>("");
-
-    // POST http://localhost:3000/api/jobs
 
     const handleSubmit = async (e:React.SubmitEvent)=>{
         console.log("in handleSubmit")

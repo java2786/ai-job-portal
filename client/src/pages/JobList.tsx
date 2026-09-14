@@ -15,10 +15,8 @@ function JobList({ token, onSelectJob }: JobListProps) {
   
   useEffect(() => {  
     fetch(server_api+"/api/jobs", {
-      // method: 'get',
       headers: {
           'Authorization': 'Bearer '+token
-          // 'Content-Type': 'application/json'
       }
     })  
       .then((res) => {  

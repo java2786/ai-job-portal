@@ -37,11 +37,9 @@ function Auth({onLoginSuccess}: AuthProps){
             }
 
             if(isSignup){
-                // signup
                 setIsSignup(false)
                 setError("Signup successful. Please log in.")
             } else {
-                // login
                 onLoginSuccess(data.token, data.user);
             }
         } catch(err){
@@ -51,21 +49,17 @@ function Auth({onLoginSuccess}: AuthProps){
 
     return (
         <div className="auth-form">
-            {/* {isSignup && <h2>Create Account</h2>}
-            {isSignup==false && <h2>Login</h2>} */}
             <h2>{isSignup?"Create Account":"Login"}</h2>
 
             <form onSubmit={handleSubmit}>
                 {isSignup && <input placeholder="Name" value={name} onChange={(e)=>setName(e.target.value)}/>}
-                <input placeholder="example@abc.com" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                <input placeholder="Pwd@123" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                <input placeholder="Email address" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                <input placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
 
                 {isSignup && <select onChange={(e)=>setRole(e.target.value as "admin"|"candidate")}>
                     <option value='candidate'>Candidate</option>
                     <option value='admin'>Admin</option>
-                    {/* <option value='user'>User</option> */}
                 </select>}
-                {/* <input type="submit" value={isSignup?"Sign Up":"Login"}/> */}
                 <button type="submit">{isSignup?"Sign Up":"Login"}</button>
             </form>
 

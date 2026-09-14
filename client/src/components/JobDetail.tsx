@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import candidate from "../data/candidate";
 import { Job } from "../types";
 import {server_api} from "../data/api";
 
@@ -27,7 +26,6 @@ function JobDetail({ jobId, onBack, token }: JobDetailProps) {
 
   
 
-  // constructor
   useEffect(() => {
     fetch(`${server_api}/api/jobs/${jobId}`, {
       method: 'get',
@@ -69,8 +67,6 @@ function JobDetail({ jobId, onBack, token }: JobDetailProps) {
     setApplyError("");  
     setEvaluating(true);  
     try {  
-      // problem
-      
       const matchRes = await fetch(server_api+"/api/candidate/match", {  
         method: "POST",  
         headers: {  
@@ -83,7 +79,6 @@ function JobDetail({ jobId, onBack, token }: JobDetailProps) {
       const matchData = await matchRes.json(); 
        
       if (matchRes.ok && matchData.parsedSkills.length==0 && matchData.matchScore === 0 && matchData.aiFeedback === "Evaluation Failed.") {
-        // setMatchResult({ matchScore: matchData.matchScore, aiFeedback: `${matchData.aiFeedback} Server error.` });  
         setApplyError("AI evaluation failed. Server error.");  
       } else if (!matchRes.ok) {
         throw new Error(matchData.error || "AI evaluation failed");
@@ -99,7 +94,6 @@ function JobDetail({ jobId, onBack, token }: JobDetailProps) {
     }  
   }; 
 
-  // http://localhost:3000/api/candidate/apply
   const handleApply = async () => {
     setApplying(true)
     setApplyError("");  

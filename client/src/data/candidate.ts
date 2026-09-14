@@ -1,4 +1,3 @@
-// const candidate = {  
 import { Candidate } from "../types";  
   
 const candidate: Candidate = {
@@ -6,7 +5,7 @@ const candidate: Candidate = {
   name: "Suresh Kumar",  
   email: "suresh@example.com",  
   role: "candidate",  
-  resumeText: "Final year B.Tech student with project experience in Node.js and MongoDB. Built a hostel management system as a college project.",  
+  resumeText: "Backend developer with project experience in Node.js and MongoDB. Built and maintained a hostel management system.",  
   parsedSkills: [],  
   applications: [  
     {  

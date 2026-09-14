@@ -1,4 +1,3 @@
-// const jobs = [  
 import { Job } from "../types";  
   
 const jobs: Job[] = [

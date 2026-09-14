@@ -5,7 +5,6 @@ interface JobCardProps {
   onSelect: (jobId: string) => void;  
 }  
   
-// function JobCard({ job, onSelect }) {  
 function JobCard({ job, onSelect }: JobCardProps) { 
 return (  
     <div className="job-card" onClick={() => onSelect(job.id)}>  
