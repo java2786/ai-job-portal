@@ -1,0 +1,79 @@
+# app.use("/api/jobs", jobRoutes)
+# app.use("/api/auth", authRoutes)
+# app.use("/api/candidate", candidateRoutes)
+
+GET http://localhost:3000/api/jobs 
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDc4NDcyZTdmMmRhODliOTg4NDdlNiIsIm5hbWUiOiJSYWtlc2giLCJyb2xlIjoiY2FuZGlkYXRlIiwiaWF0IjoxNzg5MzgzMzQ4LCJleHAiOjE3ODk5ODgxNDh9.dsUYkfq2fUXgZPx3H2QfDCU4BB5izERST4laTvM_lTc
+
+
+###
+
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{  
+    "name": "Rakesh",  
+    "email": "rakesh@gmail.com",  
+    "password": "rakesh@321"
+}
+
+###
+
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{  
+    "email": "rakesh@gmail.com",  
+    "password": "rakesh@321"
+}
+
+### 
+
+PATCH http://localhost:3000/api/candidate/me/resume
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDc4NDcyZTdmMmRhODliOTg4NDdlNiIsIm5hbWUiOiJSYWtlc2giLCJyb2xlIjoiY2FuZGlkYXRlIiwiaWF0IjoxNzg5MzgzMzQ4LCJleHAiOjE3ODk5ODgxNDh9.dsUYkfq2fUXgZPx3H2QfDCU4BB5izERST4laTvM_lTc
+# Data Analyst
+
+{
+    "resumeText": "Motivated fresher with 2 years of hands-on experience in SQL, Python, Java, JavaScript/TypeScript, Node.js, React, Spring Boot, along with frontend skills in HTML and CSS. I have worked on building and supporting backend APIs/services, writing and optimizing SQL queries for reporting and data extraction, and developing responsive web pages and UI features. I also have experience with Excel for data preparation and analysis, and Power BI for creating interactive dashboards and reports. I have worked in cloud environments using AWS services (as applicable) for deployment and data handling tasks. I’m skilled at transforming raw data into meaningful outputs, improving performance by refining queries and logic, and collaborating with teams to deliver reliable solutions. I’m now seeking an opportunity where I can use my data, development, and analytics skills to contribute to business-impacting products and systems."
+}
+
+###
+
+# 6a3ba573690a53ab423d44b7
+
+POST http://localhost:3000/api/candidate/apply
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDc4NDcyZTdmMmRhODliOTg4NDdlNiIsIm5hbWUiOiJSYWtlc2giLCJyb2xlIjoiY2FuZGlkYXRlIiwiaWF0IjoxNzg5MzgzMzQ4LCJleHAiOjE3ODk5ODgxNDh9.dsUYkfq2fUXgZPx3H2QfDCU4BB5izERST4laTvM_lTc
+# Data Analyst
+
+{
+    "jobId": "6a3ba573690a53ab423d44b7"
+}
+
+###
+
+POST http://localhost:3000/api/candidate/match
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDc4NDcyZTdmMmRhODliOTg4NDdlNiIsIm5hbWUiOiJSYWtlc2giLCJyb2xlIjoiY2FuZGlkYXRlIiwiaWF0IjoxNzg5MzgzMzQ4LCJleHAiOjE3ODk5ODgxNDh9.dsUYkfq2fUXgZPx3H2QfDCU4BB5izERST4laTvM_lTc
+# Data Analyst
+
+{
+    "jobId": "6a3ba573690a53ab423d44b7"
+}
+
+###
+
+GET http://localhost:3000/api/candidate/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDc4NDcyZTdmMmRhODliOTg4NDdlNiIsIm5hbWUiOiJSYWtlc2giLCJyb2xlIjoiY2FuZGlkYXRlIiwiaWF0IjoxNzg5MzgzMzQ4LCJleHAiOjE3ODk5ODgxNDh9.dsUYkfq2fUXgZPx3H2QfDCU4BB5izERST4laTvM_lTc
+
+###
+
+POST http://localhost:3000/api/candidate/match
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNDc4NDcyZTdmMmRhODliOTg4NDdlNiIsIm5hbWUiOiJSYWtlc2giLCJyb2xlIjoiY2FuZGlkYXRlIiwiaWF0IjoxNzg5MzgzMTc4LCJleHAiOjE3ODk5ODc5Nzh9.tEg0Bw3e1ABU_Ek57VCOga45sTt177Lji-viJgm8Xtw
+Content-Type: application/json
+
+{"jobId":"6a3ba573690a53ab423d44b7"}
