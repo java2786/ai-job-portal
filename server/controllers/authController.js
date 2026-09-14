@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const salt = 10
 const Candidate = require("./../models/Candidate")
+const {revokeToken} = require("../middleware/tokenBlacklist")
 require("dotenv").config()
 
 exports.signup = async (req, res) => {
@@ -67,4 +68,9 @@ exports.login = async (req, res) => {
         // res.status(500).json({ error: "Server error", e: err })
         res.status(500).json({ error: "Server error", e: err.message });
     }
+}
+
+exports.logout = (req, res) => {
+    revokeToken(req.token, req.user.exp);
+    res.status(204).send();
 }

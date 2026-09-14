@@ -58,6 +58,18 @@
   border-color: rgba(255, 255, 255, 0.6);
 }
 
+.navbar .logout-button {
+  color: #ffd8d3;
+  border-color: rgba(255, 216, 211, 0.4);
+}
+
+.navbar .logout-button:hover,
+.navbar .logout-button:focus-visible {
+  color: var(--surface);
+  background: rgba(181, 71, 71, 0.28);
+  border-color: rgba(255, 216, 211, 0.72);
+}
+
 .job-detail > button:hover,
 .post-job button:hover,
 .auth-form button[type='submit']:hover {

@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken")
+const {isTokenRevoked} = require("./tokenBlacklist")
 
 exports.verifyToken = (req, res, next)=>{
     // check is user is loggedin
@@ -23,11 +24,16 @@ exports.verifyToken = (req, res, next)=>{
     }
 
     const token = authHeader.substring(7)
+
+    if(isTokenRevoked(token)){
+        return res.status(401).json({error: "Invalid or Revoked token"})
+    }
     
 
     try{
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decoded;
+        req.token = token;
         next();
     } catch(err){
         return res.status(401).json({error: "Invalid or Expired token"})

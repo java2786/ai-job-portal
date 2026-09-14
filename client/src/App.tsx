@@ -6,6 +6,7 @@ import "./App.css";
 import { AuthUser } from "./types";
 import Auth from "./components/Auth";
 import PostJob from "./components/PostJob";
+import {server_api} from "./data/api";
 
 type View = "jobs" | "detail" | "profile" | "postJob";  
 
@@ -26,12 +27,24 @@ function App() {
     setUser(newUser)
   }
   
-  const handleLogout = ()=>{
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
+  const handleLogout = async ()=>{
+    try {
+      await fetch(`${server_api}/api/auth/logout`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    } finally {
+      localStorage.removeItem("token")
+      localStorage.removeItem("user")
+      sessionStorage.removeItem("token")
+      sessionStorage.removeItem("user")
 
-    setToken(null)
-    setUser(null)
+      setToken(null)
+      setUser(null)
+      setView("jobs")
+    }
   }
 
   if(!token || !user){
@@ -50,6 +63,7 @@ function App() {
         <button onClick={() => setView("jobs")}>Jobs</button>  
         {user.role==='candidate' && <button onClick={() => setView("profile")}>My Profile</button>}  
         {user.role==='admin' && <button onClick={() => setView("postJob")}>Post New Jobs</button> }
+        <button className="logout-button" onClick={handleLogout}>Log out</button>
       </nav>  
   
       {view === "jobs" && <JobList token={token} onSelectJob={handleSelectJob} />}  
