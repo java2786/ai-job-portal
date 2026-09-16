@@ -8,7 +8,7 @@ require('dotenv').config();
 //   })
 
 const connectDB = async ()=>{
-    try{
+    try{// DB name: jobify
         await mongoose.connect(process.env.MONGO_URI);
         console.log("Connection created...")
     } catch(err){

@@ -3,7 +3,7 @@
 A full-stack job portal with a React and TypeScript frontend and a Node.js/Express backend. Candidates can browse jobs, apply, maintain resume text, and receive an OpenAI-generated skills and job-match evaluation. Admin users can publish jobs.
 
 ## Project Structure
-
+ 
 ```text
 app/
 ├── client/        # React + TypeScript + Vite frontend

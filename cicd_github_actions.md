@@ -12,7 +12,7 @@ By the end of this guide, every time you push code to GitHub, it will automatica
 - A GitHub repository with your project pushed
 - An AWS EC2 instance running Ubuntu with your backend app configured
 - Your `.pem` private key file used for SSH access
-
+ 
 ---
 
 ## 1. What Is CI/CD — The Simplest Explanation
